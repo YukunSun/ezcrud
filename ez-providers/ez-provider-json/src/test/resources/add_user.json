@@ -1,0 +1,60 @@
+{
+  "request": {
+    "protocol": "http",
+    "host": "",
+    "port": 80,
+    "method": "GET",
+    "path": "add/user",
+    "query": [
+      {
+        "name": "id",
+        "type": "Long",
+        "value": "",
+        "required": false
+      }
+    ],
+    "body": [
+      {
+        "name": "",
+        "type": "",
+        "value": "",
+        "required": false
+      }
+    ]
+  },
+  "crud": {
+    "if": {
+      "type": "R",
+      "by": "getById",
+      "schema": "table_name"
+    },
+    "then": {
+      "type": "C",
+      "by": "save",
+      "schema": "table_name"
+    },
+    "else": {
+      "type": "U",
+      "by": "updateById",
+      "schema": "table_name"
+    },
+    "end": {
+      "type": "C",
+      "by": "save",
+      "schema": "log"
+    }
+  },
+  "response": {
+    "condition": {},
+    "action": {
+      "code": "10000",
+      "msg": "save success",
+      "description": "提交成功",
+      "data": {
+        "field": "",
+        "field2": "",
+        "field3": ""
+      }
+    }
+  }
+}
